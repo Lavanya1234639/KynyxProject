@@ -6,17 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var hamburger = document.getElementById("hamburger");
     var navLinks = document.getElementById("navLinks");
 
-<<<<<<< HEAD
-    // Check if both elements are present before adding event listeners
-=======
->>>>>>> 6f6ee16 (Features Section Completed)
     if (hamburger && navLinks) {
-        // Toggle menu visibility when hamburger button is clicked
         hamburger.addEventListener("click", function() {
             navLinks.classList.toggle("show");
         });
+    }
 
-        // Close mobile menu when a navigation link is clicked
+    // Close mobile menu when a navigation link is clicked (safe check)
+    if (navLinks) {
         var links = navLinks.getElementsByTagName("a");
         for (var i = 0; i < links.length; i++) {
             links[i].addEventListener("click", function() {
@@ -47,13 +44,17 @@ document.addEventListener("DOMContentLoaded", function() {
             var targetId = this.getAttribute("href");
             if (targetId === "#") return;
             
-            var targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+            try {
+                var targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            } catch (error) {
+                // Fail silently if href is not a valid CSS selector
             }
         });
     });
@@ -61,22 +62,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // 4. ScrollSpy: Highlight active navigation link
     var sections = document.querySelectorAll("section[id]");
     function scrollSpy() {
-        var scrollY = window.pageYOffset;
+        var scrollY = window.scrollY || window.pageYOffset;
 
         sections.forEach(function(current) {
             var sectionHeight = current.offsetHeight;
             var sectionTop = current.offsetTop - 100; // Offset for sticky header
             var sectionId = current.getAttribute("id");
-            var navLink = document.querySelector('.nav-links a[href*="' + sectionId + '"]');
-
-            if (navLink) {
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    // Remove active class from all links
-                    document.querySelectorAll(".nav-links a").forEach(function(link) {
-                        link.classList.remove("active");
-                    });
-                    navLink.classList.add("active");
+            
+            try {
+                var navLink = document.querySelector('.nav-links a[href*="' + sectionId + '"]');
+                if (navLink) {
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        // Remove active class from all links
+                        document.querySelectorAll(".nav-links a").forEach(function(link) {
+                            link.classList.remove("active");
+                        });
+                        navLink.classList.add("active");
+                    }
                 }
+            } catch (error) {
+                // Fail silently if sectionId contains special characters
             }
         });
 
