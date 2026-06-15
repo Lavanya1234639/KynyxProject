@@ -50,6 +50,11 @@ body {
     letter-spacing: 1px;
 }
 
+.logo-img {
+    height: 38px;
+    display: block;
+}
+
 .nav-links a {
     color: #9ca3af;
     text-decoration: none;
