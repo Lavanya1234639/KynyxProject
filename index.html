@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kynyx Solutions | Premium Digital Agency</title>
+    <meta name="description" content="Kynyx is a premier digital agency crafting enterprise-grade web applications, custom UI/UX designs, and cloud systems to scale your business.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="CSS/responsive.css">
+</head>
+<body>
+    <!-- Background Glow Blobs -->
+    <div class="blob-bg blob-1"></div>
+    <div class="blob-bg blob-2"></div>
+    <div class="blob-bg blob-3"></div>
+
+    <!-- Header / Navbar -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-container">
+            <a href="#home" class="brand-logo" id="logoLink">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8b5cf6" />
+                            <stop offset="100%" stop-color="#06b6d4" />
+                        </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="8" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                    </defs>
+                    <!-- Abstract glowing polygon logo -->
+                    <path d="M50 15 L85 35 L85 75 L50 90 L15 75 L15 35 Z" stroke="url(#logoGrad)" stroke-width="6" stroke-linejoin="round" filter="url(#glow)" fill="none" />
+                    <path d="M50 30 L70 42 L70 68 L50 78 L30 68 L30 42 Z" fill="url(#logoGrad)" opacity="0.85" />
+                </svg>
+                <span class="logo-text">Kynyx</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="nav-link active" id="link-home">Home</a></li>
+                    <li><a href="#services" class="nav-link" id="link-services">Services</a></li>
+                    <li><a href="#work" class="nav-link" id="link-work">Work</a></li>
+                    <li><a href="#about" class="nav-link" id="link-about">About</a></li>
+                    <li><a href="#contact" class="nav-link" id="link-contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-nav" id="navCta">Get in Touch</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Next-Gen Digital Solutions</span>
+                    </div>
+                    <h1 class="hero-title">
+                        We build digital products that <span class="gradient-text">redefine</span> industries.
+                    </h1>
+                    <p class="hero-desc">
+                        Kynyx Solutions is an elite digital agency crafting enterprise-grade web applications, bespoke UI/UX designs, and cloud solutions. We partner with innovators to scale impact.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary btn-glow" id="heroPrimaryCta">
+                            <span>Launch Your Project</span>
+                            <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#work" class="btn btn-secondary" id="heroSecondaryCta">Explore Our Work</a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3 class="stat-num">99%</h3>
+                            <p class="stat-lbl">Client Satisfaction</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <h3 class="stat-num">150+</h3>
+                            <p class="stat-lbl">Projects Delivered</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <h3 class="stat-num">4.9★</h3>
+                            <p class="stat-lbl">Clutch Rating</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="visual-wrapper">
+                        <!-- Glassmorphic Card floating over illustration -->
+                        <div class="glass-card card-1 floating-1">
+                            <div class="card-header">
+                                <div class="dot red"></div>
+                                <div class="dot yellow"></div>
+                                <div class="dot green"></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">UI/UX Innovation</span>
+                                <h4>Interactive Experience</h4>
+                                <div class="card-bar">
+                                    <div class="bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card card-2 floating-2">
+                            <div class="stat-circle">
+                                <svg width="60" height="60" viewBox="0 0 36 36">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#222" stroke-width="3"/>
+                                    <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
+                                </svg>
+                                <div class="circle-val">90%</div>
+                            </div>
+                            <div class="circle-desc">
+                                <h5>Growth Speed</h5>
+                                <p>Efficiency optimized</p>
+                            </div>
+                        </div>
+
+                        <!-- Main Generated Illustration -->
+                        <div class="illustration-container">
+                            <img src="assets/images/hero_illustration.png" alt="Kynyx Digital Innovation Illustration" class="hero-image">
+                        </div>
+                        
+                        <!-- Glowing light source behind picture -->
+                        <div class="glow-light"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
