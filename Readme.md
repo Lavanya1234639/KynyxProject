@@ -1,4 +1,4 @@
-# Kynyx Solutions - Premium Landing Page
+# Kynyx Solutions - Landing Page
 
 This repository contains the foundation and hero section for the **Kynyx Solutions** landing page. Built with raw, high-performance web technologies, it features a next-gen dark glassmorphism aesthetic, clean typography, smooth transitions, and a fully responsive layout.
 
