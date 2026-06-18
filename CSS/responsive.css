@@ -1,0 +1,146 @@
+/* TABLET */
+
+@media(max-width:992px){
+
+.hero-wrapper,
+.about-wrapper{
+    flex-direction:column;
+    text-align:center;
+}
+
+.services-grid,
+.work-grid,
+.testimonial-container,
+.feature-container{
+    grid-template-columns:1fr 1fr;
+}
+
+.main-title{
+    font-size:42px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.navbar{
+    flex-direction:column;
+    height:auto;
+    padding:20px 0;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:20px 0;
+}
+
+.hero-wrapper{
+    flex-direction:column;
+    text-align:center;
+}
+
+.btn-group{
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.stats-container{
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.feature-container,
+.services-grid,
+.work-grid,
+.testimonial-container,
+.footer-content{
+    grid-template-columns:1fr;
+}
+
+.main-title{
+    font-size:32px;
+}
+
+.section-title{
+    font-size:32px;
+}
+
+.about-wrapper{
+    flex-direction:column;
+}
+
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+.container{
+    width:95%;
+}
+
+.main-title{
+    font-size:28px;
+}
+
+.section-title{
+    font-size:28px;
+}
+
+.btn{
+    width:100%;
+}
+
+}
+@media(max-width:768px){
+
+    .contact .section-title h2{
+        font-size: 2.2rem;
+    }
+
+    .contact .section-title p{
+        font-size: 1rem;
+    }
+
+}
+@media(max-width:768px){
+
+    .testimonials .section-title h2{
+        font-size:2.3rem;
+    }
+
+    .testimonials .section-title p{
+        font-size:1rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .feature-container{
+        grid-template-columns:1fr;
+    }
+
+    .features .section-title h2{
+        font-size:2.2rem;
+    }
+
+    .features .section-title p{
+        font-size:1rem;
+    }
+
+}
+@media(max-width:768px){
+
+    .features .section-title h2{
+        font-size:2.2rem !important;  //!important "Is property ko sabse zyada priority do."
+    }
+
+    .features .section-title p{
+        font-size:1rem !important;
+    }
+
+}

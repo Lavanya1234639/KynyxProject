@@ -81,5 +81,39 @@ document.addEventListener("DOMContentLoaded", function() {
         formMessage.textContent = text;
         formMessage.className = "form-message show " + type;
     }
+    
+});
+const cards = document.querySelectorAll(".testimonial-card");
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
 });
 
+cards.forEach((card)=>{
+    card.classList.add("hidden");
+    observer.observe(card);
+});
+const featureCards =
+document.querySelectorAll(".feature-card");
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+entries.forEach((entry)=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+
+});
+
+});
+
+featureCards.forEach((card)=>{
+card.classList.add("hidden");
+observer.observe(card);
+});
