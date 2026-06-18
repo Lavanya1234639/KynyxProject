@@ -136,7 +136,7 @@
 @media(max-width:768px){
 
     .features .section-title h2{
-        font-size:2.2rem !important;  //!important "Is property ko sabse zyada priority do."
+        font-size:2.2rem !important;  /*!important "Is property ko sabse zyada priority do."*/
     }
 
     .features .section-title p{
