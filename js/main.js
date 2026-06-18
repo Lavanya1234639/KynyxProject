@@ -1,5 +1,4 @@
-// Simple Javascript for Mobile Navbar Toggle
-// Created by Kynyx Development Team
+
 
 document.addEventListener("DOMContentLoaded", function() {
     var hamburger = document.getElementById("hamburger");

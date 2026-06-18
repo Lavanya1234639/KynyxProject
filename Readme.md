@@ -1,41 +1,89 @@
-# Kynyx Solutions - Landing Page
+# Kynyx Solutions Landing Page
 
-This repository contains the foundation and hero section for the **Kynyx Solutions** landing page. Built with raw, high-performance web technologies, it features a next-gen dark glassmorphism aesthetic, clean typography, smooth transitions, and a fully responsive layout.
+This repository contains the foundation and hero section for the Kynyx Solutions landing page. Built with raw, high-performance web technologies, it features a next-gen dark glassmorphism aesthetic, clean typography, smooth transitions, and a fully responsive layout.
 
-## Project Structure
+## Project Overview
 
-```text
-├── assets/
-│   ├── icons/           # Brand and interface SVG icons
-│   └── images/          # Image assets (including premium tech illustrations)
+Kynyx Solutions Landing Page is a responsive company website developed using HTML5, CSS3, and JavaScript. The website represents a fictional software development agency that provides web development, mobile application development, UI/UX design, and digital transformation services.
+
+The project was built as part of an internship assignment focusing on responsive web design, modern UI development, and front-end best practices.
+
+## Features
+
+* Responsive Navigation Bar
+* Hero Section with Call-to-Action
+* Services Section
+* Portfolio / Work Section
+* About Us Section
+* Contact Button
+* Mobile Responsive Layout
+* Tablet Responsive Layout
+* Smooth Hover Effects
+* Modern UI Design
+* Cross-Browser Compatibility
+
+## Technologies Used
+
+* HTML5
+* CSS3
+* JavaScript
+* Google Fonts (Poppins)
+* Git
+* GitHub
+
+## Folder Structure
+
+project-root/
+
+├── index.html
+
 ├── CSS/
-│   ├── style.css        # Central stylesheet with design tokens and styling
-│   └── responsive.css   # Responsive media queries for various devices
+│   └── style.css
+
 ├── js/
-│   └── main.js          # Core JavaScript logic (interactivity, scroll tracking, scrollspy)
-├── index.html           # Main semantic HTML structure
-└── Readme.md            # Project documentation (this file)
-```
+│   └── main.js
 
-## Features Implemented
+├── assets/
+│   ├── images/
+│   └── icons/
 
-1. **Design System & Base Styling**:
-   - Modern dark theme using deep obsidian colors (`#050508`), glowing accents (indigo, violet, cyan), and frosted glassmorphic containers.
-   - Customized typography featuring Google Fonts' **Outfit** for sleek headers and **Inter** for legible body copy.
-   - Smooth animated gradient text and glowing CTA buttons.
-   
-2. **Sticky Header & Navbar**:
-   - Seamless transition to a frosted glass background (`backdrop-filter`) upon scroll.
-   - Interactive sliding link indicators and active-state tracking (scrollspy).
-   - Responsive design with an elegant mobile hamburger navigation menu.
+├── docs/
+│   └── progress-report.md
 
-3. **Hero Section**:
-   - Modern grid layout with a premium gradient title, dynamic sub-heading, action buttons, and digital agency metrics.
-   - Floating cards featuring micro-animations that respond dynamically to hover actions.
-   - High-quality, AI-generated technology illustration asset.
-   - Moving ambient light source and glowing gradient blobs in the background.
+└── README.md
 
-## Getting Started
+## Sections Included
 
-Simply open `index.html` in any modern web browser to view the page and experience the animations and responsiveness.
-No build steps or dependencies are required.
+1. Header/Navbar
+2. Hero Section
+3. Services Section
+4. Portfolio Section
+5. About Section
+6. Footer
+
+## Responsive Design
+
+The website is optimized for:
+
+* Desktop Devices
+* Tablet Devices
+* Mobile Devices
+
+Media queries were used to ensure proper responsiveness across all screen sizes.
+
+## Learning Outcomes
+
+* HTML page structuring
+* CSS Flexbox and Grid Layouts
+* Responsive Design Implementation
+* UI/UX Design Principles
+* Git and GitHub Workflow
+* Website Optimization Techniques
+
+## Author
+
+Lavanya
+
+Intern – Frontend Development
+
+2026
