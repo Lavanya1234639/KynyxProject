@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Main Style -->
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css?v=2">
 </head>
 <body>
 
@@ -78,6 +78,61 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Features</h2>
+                <p>Powerful solutions designed for modern businesses.</p>
+            </div>
+
+            <div class="feature-container" style="display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 30px; width: 100%!important;">
+
+                <div class="feature-card">
+                    <div class="icon">🚀</div>
+                    <h3>Fast Performance</h3>
+
+                    <p>
+                        Optimized platforms ensuring high speed,
+                        reliability and seamless user experience.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">☁️</div>
+                    <h3>Cloud Solutions</h3>
+
+                    <p>
+                        Secure cloud services enabling scalability,
+                        flexibility and business continuity.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3>Cyber Security</h3>
+
+                    <p>
+                        Advanced security systems to protect your
+                        business from modern cyber threats.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🤖</div>
+                    <h3>AI Integration</h3>
+
+                    <p>
+                        Intelligent automation and AI-powered tools
+                        to increase productivity.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
     </section>
 
     <!-- Services Section -->
@@ -157,7 +212,6 @@
                     Complete online shopping platform with payment integration,
                     inventory management, and responsive design.
                 </p>
-                <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=800" alt="E-Commerce">
             </div>
         </div>
 
@@ -169,7 +223,7 @@
                     Cross-platform mobile application developed for Android
                     and iOS users with real-time tracking.
                 </p>
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800" alt="Food App">
+            </div>
         </div>
 
         <div class="work-card">
@@ -180,7 +234,6 @@
                     Interactive analytics dashboard helping organizations
                     monitor KPIs and generate reports.
                 </p>
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Dashboard">
             </div>
         </div>
 
@@ -200,7 +253,7 @@
         <!-- Left Side Image -->
         <div class="about-left">
 
-            <img src="images\team photo.jpg"
+            <img src="assets/images/team photo.jpg"
                  alt="Kynyx Team"
                  class="about-img">
 
@@ -240,7 +293,97 @@
 
 </section>
 
-</div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>Trusted by businesses worldwide.</p>
+            </div>
+
+            <div class="testimonial-container" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 30px; width: 100%!important;">
+
+                <div class="testimonial-card">
+                    <p>
+                        "Kynyx transformed our business operations with
+                        modern cloud solutions."
+                    </p>
+
+                    <h4>Rahul Sharma</h4>
+                    <span>CEO, TechNova</span>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>
+                        "Their development team delivered exceptional
+                        results ahead of schedule."
+                    </p>
+
+                    <h4>Priya Verma</h4>
+                    <span>Marketing Director</span>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>
+                        "Excellent support and innovative AI solutions
+                        that improved efficiency."
+                    </p>
+
+                    <h4>Ankit kumar</h4>
+                    <span>Operations Manager</span>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Let's discuss your next project.</p>
+            </div>
+
+            <form id="contactForm" class="contact-form">
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    rows="6"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+            <div id="formMessage" class="form-message"></div>
+        </div>
+    </section>
                 
     <!-- Main JS -->
     <script src="js/main.js"></script>
