@@ -144,3 +144,24 @@
     }
 
 }
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:15px 0;
+        height:auto;
+    }
+
+    .nav-links{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .contact-btn{
+        width:auto;
+    }
+
+}
