@@ -1,40 +1,87 @@
-/* TABLET */
+@media(max-width:768px){
+
+.menu-toggle{
+    display:block;
+}
+
+.nav-links{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    text-align:center;
+    margin-top:15px;
+}
+
+.nav-links.active{
+    display:flex;
+}
+
+}
 
 @media(max-width:992px){
 
 .hero-wrapper,
 .about-wrapper{
     flex-direction:column;
-    text-align:center;
 }
 
-.services-grid,
-.work-grid,
-.testimonial-container,
-.feature-container{
-    grid-template-columns:1fr 1fr;
+.hero-left,
+.hero-right,
+.about-left,
+.about-right{
+    width:100%;
 }
 
 .main-title{
-    font-size:42px;
+    font-size:2.8rem;
+}
+
+.feature-container{
+    grid-template-columns:1fr;
+}
+
+.services-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.projects-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.testimonial-container{
+    grid-template-columns:1fr 1fr;
+}
+
+.footer-content{
+    grid-template-columns:1fr;
 }
 
 }
 
-/* MOBILE */
+/* ==========================
+   Mobile Devices
+   ========================== */
 
 @media(max-width:768px){
 
 .navbar{
     flex-direction:column;
-    height:auto;
+    gap:15px;
     padding:20px 0;
 }
 
 .nav-links{
     flex-wrap:wrap;
     justify-content:center;
-    margin:20px 0;
+    gap:15px;
+}
+
+.contact-btn{
+    width:fit-content;
+}
+
+.hero-section{
+    padding:70px 0;
 }
 
 .hero-wrapper{
@@ -42,9 +89,17 @@
     text-align:center;
 }
 
+.main-title{
+    font-size:2.2rem;
+}
+
+.description{
+    max-width:100%;
+}
+
 .btn-group{
-    justify-content:center;
-    flex-wrap:wrap;
+    flex-direction:column;
+    align-items:center;
 }
 
 .stats-container{
@@ -54,27 +109,37 @@
 
 .feature-container,
 .services-grid,
-.work-grid,
-.testimonial-container,
-.footer-content{
+.projects-grid,
+.testimonial-container{
     grid-template-columns:1fr;
 }
 
-.main-title{
-    font-size:32px;
-}
-
 .section-title{
-    font-size:32px;
+    font-size:2rem;
 }
 
 .about-wrapper{
     flex-direction:column;
 }
 
+.about-right{
+    text-align:center;
 }
 
-/* SMALL MOBILE */
+.about-list{
+    text-align:left;
+}
+
+.footer-content{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+}
+
+/* ==========================
+   Small Mobile Devices
+   ========================== */
 
 @media(max-width:480px){
 
@@ -83,85 +148,26 @@
 }
 
 .main-title{
-    font-size:28px;
+    font-size:1.8rem;
 }
 
 .section-title{
-    font-size:28px;
+    font-size:1.7rem;
 }
 
 .btn{
     width:100%;
+    text-align:center;
 }
 
-}
-@media(max-width:768px){
-
-    .contact .section-title h2{
-        font-size: 2.2rem;
-    }
-
-    .contact .section-title p{
-        font-size: 1rem;
-    }
-
-}
-@media(max-width:768px){
-
-    .testimonials .section-title h2{
-        font-size:2.3rem;
-    }
-
-    .testimonials .section-title p{
-        font-size:1rem;
-    }
-
+.hero-img,
+.about-img{
+    border-radius:12px;
 }
 
-@media(max-width:768px){
-
-    .feature-container{
-        grid-template-columns:1fr;
-    }
-
-    .features .section-title h2{
-        font-size:2.2rem;
-    }
-
-    .features .section-title p{
-        font-size:1rem;
-    }
-
+.contact-form input,
+.contact-form textarea{
+    padding:12px;
 }
-@media(max-width:768px){
-
-    .features .section-title h2{
-        font-size:2.2rem !important;  /*!important "Is property ko sabse zyada priority do."*/
-    }
-
-    .features .section-title p{
-        font-size:1rem !important;
-    }
-
-}
-@media(max-width:768px){
-
-    .navbar{
-        flex-direction:column;
-        gap:15px;
-        padding:15px 0;
-        height:auto;
-    }
-
-    .nav-links{
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
-    }
-
-    .contact-btn{
-        width:auto;
-    }
 
 }
