@@ -1,173 +1,78 @@
-@media(max-width:768px){
-
-.menu-toggle{
-    display:block;
-}
-
-.nav-links{
-    display:none;
-    width:100%;
-    flex-direction:column;
-    text-align:center;
-    margin-top:15px;
-}
-
-.nav-links.active{
-    display:flex;
-}
-
-}
+/* ===================
+   TABLET
+=================== */
 
 @media(max-width:992px){
 
-.hero-wrapper,
-.about-wrapper{
-    flex-direction:column;
+.hero-content,
+.about-content,
+.why-content,
+.contact-wrapper{
+grid-template-columns:1fr;
 }
 
-.hero-left,
-.hero-right,
-.about-left,
-.about-right{
-    width:100%;
+.services-grid,
+.projects-grid,
+.testimonial-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
-.main-title{
-    font-size:2.8rem;
+.process-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
-.feature-container{
-    grid-template-columns:1fr;
+.footer-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
-.services-grid{
-    grid-template-columns:1fr 1fr;
-}
-
-.projects-grid{
-    grid-template-columns:1fr 1fr;
-}
-
-.testimonial-container{
-    grid-template-columns:1fr 1fr;
-}
-
-.footer-content{
-    grid-template-columns:1fr;
+.stats-grid,
+.trust-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
 }
 
-/* ==========================
-   Mobile Devices
-   ========================== */
+/* ===================
+   MOBILE
+=================== */
 
 @media(max-width:768px){
 
-.navbar{
-    flex-direction:column;
-    gap:15px;
-    padding:20px 0;
+.hero h1{
+font-size:2.5rem;
 }
 
-.nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
+.about h2,
+.section-header h2,
+.why-left h2,
+.cta h2{
+font-size:2rem;
 }
 
-.contact-btn{
-    width:fit-content;
-}
-
-.hero-section{
-    padding:70px 0;
-}
-
-.hero-wrapper{
-    flex-direction:column;
-    text-align:center;
-}
-
-.main-title{
-    font-size:2.2rem;
-}
-
-.description{
-    max-width:100%;
-}
-
-.btn-group{
-    flex-direction:column;
-    align-items:center;
-}
-
-.stats-container{
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.feature-container,
 .services-grid,
 .projects-grid,
-.testimonial-container{
-    grid-template-columns:1fr;
+.testimonial-grid,
+.process-grid,
+.footer-grid,
+.stats-grid,
+.trust-grid{
+grid-template-columns:1fr;
 }
 
-.section-title{
-    font-size:2rem;
+.nav-menu{
+display:none;
 }
 
-.about-wrapper{
-    flex-direction:column;
+.nav-btn{
+display:none;
 }
 
-.about-right{
-    text-align:center;
+.contact-wrapper{
+grid-template-columns:1fr;
 }
 
-.about-list{
-    text-align:left;
-}
-
-.footer-content{
-    grid-template-columns:1fr;
-    text-align:center;
-}
-
-}
-
-/* ==========================
-   Small Mobile Devices
-   ========================== */
-
-@media(max-width:480px){
-
-.container{
-    width:95%;
-}
-
-.main-title{
-    font-size:1.8rem;
-}
-
-.section-title{
-    font-size:1.7rem;
-}
-
-.btn{
-    width:100%;
-    text-align:center;
-}
-
-.hero-img,
-.about-img{
-    border-radius:12px;
-}
-
-.contact-form input,
-.contact-form textarea{
-    padding:12px;
+.about-features{
+grid-template-columns:1fr;
 }
 
 }
