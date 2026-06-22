@@ -12,6 +12,10 @@ html{
 scroll-behavior:smooth;
 }
 
+section{
+scroll-margin-top:90px;
+}
+
 body{
 font-family:'Poppins',sans-serif;
 color:#0f172a;
@@ -90,7 +94,7 @@ display:none;
 =================== */
 
 .hero{
-padding:160px 0 100px;
+padding:140px 0 100px;
 background:
 linear-gradient(
 135deg,
@@ -184,7 +188,7 @@ color:#94a3b8;
 =================== */
 
 .about{
-padding:120px 0;
+padding: 80px 0;
 background:#f8fafc;
 }
 
@@ -275,7 +279,7 @@ line-height:1.8;
 =================== */
 
 .services{
-padding:120px 0;
+padding:80px 0;
 background:#ffffff;
 }
 
@@ -317,7 +321,7 @@ line-height:1.7;
 =================== */
 
 .why-us{
-padding:120px 0;
+padding:80px 0;
 background:#f8fafc;
 }
 
@@ -364,7 +368,7 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 =================== */
 
 .projects{
-padding:120px 0;
+padding:80px 0;
 background:#ffffff;
 }
 
@@ -426,7 +430,7 @@ color:#2563eb;
 =================== */
 
 .process{
-padding:120px 0;
+padding:80px 0;
 background:#f8fafc;
 }
 
@@ -472,7 +476,7 @@ line-height:1.7;
 =================== */
 
 .testimonials{
-padding:120px 0;
+padding:80px 0;
 background:#ffffff;
 }
 
@@ -549,7 +553,7 @@ margin-top:10px;
 =================== */
 
 .cta{
-padding:120px 0;
+padding:80px 0;
 text-align:center;
 background:
 linear-gradient(
@@ -592,7 +596,7 @@ transform:translateY(-3px);
 =================== */
 
 .contact{
-padding:120px 0;
+padding:80px 0;
 background:#f8fafc;
 }
 
