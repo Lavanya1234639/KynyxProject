@@ -76,3 +76,43 @@ grid-template-columns:1fr;
 }
 
 }
+/* ===================
+   ABOUT PAGE RESPONSIVE
+=================== */
+
+@media(max-width:992px){
+
+.story-grid{
+grid-template-columns:1fr;
+}
+
+.team-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.choose-grid,
+.values-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.about-hero h1{
+font-size:2.2rem;
+}
+
+.team-grid{
+grid-template-columns:1fr;
+}
+
+.mission-grid{
+grid-template-columns:1fr;
+}
+
+.about-cta h2{
+font-size:2rem;
+}
+
+}
