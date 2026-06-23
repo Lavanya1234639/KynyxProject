@@ -257,3 +257,10 @@
     aspect-ratio: 4/3;
   }
 }
+@media(max-width:992px){
+
+.projects-grid{
+    grid-template-columns:1fr;
+}
+
+}
