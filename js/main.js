@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------- Scroll reveal for sections ---------- */
   var revealEls = document.querySelectorAll(
-    ".service-card, .project-card, .testimonial-card, .why-card, .value-card, .team-card, .process-step, .feature-item"
+    ".service-card, .project-card, .why-card, .value-card, .team-card, .process-step, .feature-item"
   );
 
   if ("IntersectionObserver" in window && revealEls.length) {
