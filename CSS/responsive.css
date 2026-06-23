@@ -1,118 +1,259 @@
-/* ===================
-   TABLET
-=================== */
+/* =========================================================
+   Kynyx Solutions — responsive.css
+   Breakpoints: 1024px (tablet), 768px (small tablet), 480px (mobile)
+   ========================================================= */
 
-@media(max-width:992px){
+/* -------------------- Tablet: 1024px -------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --gutter: 24px;
+  }
 
-.hero-content,
-.about-content,
-.why-content,
-.contact-wrapper{
-grid-template-columns:1fr;
+  section {
+    padding: 80px 0;
+  }
+
+  .hero {
+    padding: 160px 0 80px;
+  }
+
+  .hero .container,
+  .split,
+  .split.reverse,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .split .split-visual,
+  .split.reverse .split-visual {
+    order: -1;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .services-grid,
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-strip .container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 32px;
+  }
+
+  .stat:nth-child(3) {
+    border-left: none;
+  }
+
+  .projects-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+  }
+
+  .process-step {
+    border-right: none;
+    border-bottom: 1px solid rgba(17, 22, 31, 0.1);
+    padding-bottom: 28px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 36px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.services-grid,
-.projects-grid,
-.testimonial-grid{
-grid-template-columns:repeat(2,1fr);
+/* -------------------- Small tablet / large mobile: 768px -------------------- */
+@media (max-width: 768px) {
+  section {
+    padding: 64px 0;
+  }
+
+  .section-head {
+    margin-bottom: 40px;
+  }
+
+  /* Nav becomes a slide-in mobile drawer */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(78vw, 320px);
+    background: var(--ink);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+    padding: 0 40px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 99;
+    border-left: 1px solid var(--line);
+  }
+
+  .nav-links.is-open {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-links .nav-cta-mobile {
+    display: inline-flex;
+    background: var(--signal);
+    color: var(--ink);
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    margin-top: 12px;
+  }
+
+  .nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .hero {
+    padding: 140px 0 64px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+  }
+
+  .trust-logos {
+    gap: 22px;
+  }
+
+  .services-grid,
+  .why-grid,
+  .projects-grid,
+  .testimonials-grid,
+  .process-list,
+  .feature-grid,
+  .footer-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-card,
+  .process-step {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 28px;
+  }
+
+  .process-step {
+    border-bottom-color: rgba(17, 22, 31, 0.1);
+  }
+
+  .stats-strip .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat {
+    border-left: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mission-vision {
+    grid-template-columns: 1fr;
+  }
 }
 
-.process-grid{
-grid-template-columns:repeat(2,1fr);
-}
+/* -------------------- Mobile: 480px -------------------- */
+@media (max-width: 480px) {
+  :root {
+    --gutter: 18px;
+  }
 
-.footer-grid{
-grid-template-columns:repeat(2,1fr);
-}
+  .hero h1 {
+    font-size: 34px;
+  }
 
-.stats-grid,
-.trust-grid{
-grid-template-columns:repeat(2,1fr);
-}
+  .hero p.lead {
+    font-size: 15px;
+  }
 
-}
+  .section-head h2 {
+    font-size: 26px;
+  }
 
-/* ===================
-   MOBILE
-=================== */
+  .logo {
+    font-size: 18px;
+  }
 
-@media(max-width:768px){
+  .contact-form {
+    padding: 24px;
+  }
 
-.hero h1{
-font-size:2.5rem;
-}
+  .cta-band {
+    padding: 64px 0;
+  }
 
-.about h2,
-.section-header h2,
-.why-left h2,
-.cta h2{
-font-size:2rem;
-}
+  .stats-strip .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 16px;
+  }
 
-.services-grid,
-.projects-grid,
-.testimonial-grid,
-.process-grid,
-.footer-grid,
-.stats-grid,
-.trust-grid{
-grid-template-columns:1fr;
-}
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 
-.nav-menu{
-display:none;
-}
-
-.nav-btn{
-display:none;
-}
-
-.contact-wrapper{
-grid-template-columns:1fr;
-}
-
-.about-features{
-grid-template-columns:1fr;
-}
-
-}
-/* ===================
-   ABOUT PAGE RESPONSIVE
-=================== */
-
-@media(max-width:992px){
-
-.story-grid{
-grid-template-columns:1fr;
-}
-
-.team-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.choose-grid,
-.values-grid{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:768px){
-
-.about-hero h1{
-font-size:2.2rem;
-}
-
-.team-grid{
-grid-template-columns:1fr;
-}
-
-.mission-grid{
-grid-template-columns:1fr;
-}
-
-.about-cta h2{
-font-size:2rem;
-}
-
+  .viz-panel.flat {
+    aspect-ratio: 4/3;
+  }
 }
