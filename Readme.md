@@ -37,7 +37,6 @@ KynyxProject/
 ├── contact.css                 (standalone — contact.html only)
 ├── contact-responsive.css
 └── contact.js
-```
 
 ### Why some pages share files and others don't
 

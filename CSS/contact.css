@@ -88,7 +88,7 @@ button {
 }
 
 section {
-  padding: 100px 0;
+  padding: 70px 0;
 }
 
 /* -------------------- Eyebrow / labels -------------------- */
@@ -263,7 +263,7 @@ section {
 .page-hero {
   background: var(--paper-dim);
   color: var(--ink);
-  padding: 170px 0 90px;
+  padding: 130px 0 70px;
   text-align: center;
   position: relative;
   overflow: hidden;
