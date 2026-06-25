@@ -1,6 +1,7 @@
 /* =========================================================
    Kynyx Solutions — main.js
-   Mobile nav, active link highlighting, scroll reveal,
+   Mobile nav, active link highlighting, multi-direction
+   scroll reveal, ripple effects, animated counters,
    contact form handling, header scroll state
    ========================================================= */
 
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ---------- Header background state on scroll ---------- */
+  /* ---------- Header background state on scroll (glassmorphism trigger) ---------- */
   var header = document.querySelector(".site-header");
   if (header) {
     var handleScroll = function () {
@@ -41,16 +42,29 @@ document.addEventListener("DOMContentLoaded", function () {
     handleScroll();
   }
 
-  /* ---------- Scroll reveal for sections ---------- */
-  var revealEls = document.querySelectorAll(
-    ".service-card, .project-card, .why-card, .value-card, .team-card, .process-step, .feature-item"
-  );
+  /* ---------- Multi-direction scroll reveal ----------
+     Default direction is "up" (fade-up). Elements can opt into a
+     different entrance by setting data-reveal="left|right|zoom|scale"
+     directly in HTML. Grid/row siblings are staggered automatically
+     so groups of cards animate in sequence rather than all at once. */
+  var revealGroups = [
+    { selector: ".service-card", stagger: true },
+    { selector: ".project-card", stagger: true },
+    { selector: ".why-card", stagger: true },
+    { selector: ".value-card", stagger: true },
+    { selector: ".team-card", stagger: true },
+    { selector: ".process-step", stagger: true },
+    { selector: ".feature-item", stagger: true },
+    { selector: ".mv-card", stagger: true },
+    { selector: ".about-copy", stagger: false, defaultDirection: "left" },
+    { selector: ".split-visual", stagger: false, defaultDirection: "right" },
+    { selector: ".section-head", stagger: false },
+    { selector: ".stats-strip .stat", stagger: true },
+    { selector: ".contact-form", stagger: false, defaultDirection: "right" },
+    { selector: ".contact-info", stagger: false, defaultDirection: "left" }
+  ];
 
-  if ("IntersectionObserver" in window && revealEls.length) {
-    revealEls.forEach(function (el) {
-      el.classList.add("reveal");
-    });
-
+  if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -63,8 +77,26 @@ document.addEventListener("DOMContentLoaded", function () {
       { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
 
-    revealEls.forEach(function (el) {
-      observer.observe(el);
+    revealGroups.forEach(function (group) {
+      var els = document.querySelectorAll(group.selector);
+      els.forEach(function (el, index) {
+        /* Respect an explicit data-reveal already set in HTML; otherwise
+           apply the group default (or plain fade-up via .reveal). */
+        if (!el.hasAttribute("data-reveal")) {
+          if (group.defaultDirection) {
+            el.setAttribute("data-reveal", group.defaultDirection);
+          } else {
+            el.classList.add("reveal");
+          }
+        }
+
+        if (group.stagger) {
+          var delay = Math.min(index * 90, 360); // cap so long lists don't lag forever
+          el.style.transitionDelay = delay + "ms";
+        }
+
+        observer.observe(el);
+      });
     });
   }
 
@@ -103,10 +135,37 @@ document.addEventListener("DOMContentLoaded", function () {
         window.requestAnimationFrame(step);
       } else {
         el.textContent = target + suffix;
+        /* tiny settle-pop once the count lands, purely cosmetic */
+        el.classList.add("is-counted");
+        window.setTimeout(function () {
+          el.classList.remove("is-counted");
+        }, 450);
       }
     }
     window.requestAnimationFrame(step);
   }
+
+  /* ---------- Button ripple effect ----------
+     Applies to any .btn (primary or outline) on click — a small circle
+     expands from the pointer position and fades out via CSS animation. */
+  document.querySelectorAll(".btn").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      var rect = btn.getBoundingClientRect();
+      var ripple = document.createElement("span");
+      var size = Math.max(rect.width, rect.height);
+
+      ripple.className = "btn-ripple";
+      ripple.style.width = size + "px";
+      ripple.style.height = size + "px";
+      ripple.style.left = (e.clientX - rect.left - size / 2) + "px";
+      ripple.style.top = (e.clientY - rect.top - size / 2) + "px";
+
+      btn.appendChild(ripple);
+      window.setTimeout(function () {
+        ripple.remove();
+      }, 650);
+    });
+  });
 
   /* ---------- Contact form handling (front-end only) ---------- */
   var contactForm = document.querySelector(".contact-form form");
@@ -119,13 +178,30 @@ document.addEventListener("DOMContentLoaded", function () {
       var emailField = contactForm.querySelector("#email");
       var messageField = contactForm.querySelector("#message");
 
-      if (!nameField.value.trim() || !emailField.value.trim() || !messageField.value.trim()) {
-        showStatus(statusEl, "Please fill in all required fields.", false);
-        return;
+      clearFieldError(nameField);
+      clearFieldError(emailField);
+      clearFieldError(messageField);
+
+      var hasError = false;
+
+      if (!nameField.value.trim()) {
+        markFieldError(nameField);
+        hasError = true;
+      }
+      if (!emailField.value.trim() || !isValidEmail(emailField.value.trim())) {
+        markFieldError(emailField);
+        hasError = true;
+      }
+      if (!messageField.value.trim()) {
+        markFieldError(messageField);
+        hasError = true;
       }
 
-      if (!isValidEmail(emailField.value.trim())) {
-        showStatus(statusEl, "Please enter a valid email address.", false);
+      if (hasError) {
+        var firstInvalid = (!emailField.value.trim() || !isValidEmail(emailField.value.trim()))
+          ? "Please enter a valid email address."
+          : "Please fill in all required fields.";
+        showStatus(statusEl, firstInvalid, false);
         return;
       }
 
@@ -133,6 +209,23 @@ document.addEventListener("DOMContentLoaded", function () {
       showStatus(statusEl, "Thanks! Your message has been received. We'll reply within 1 business day.", true);
       contactForm.reset();
     });
+
+    /* Clear the error state as soon as the person starts correcting a field */
+    contactForm.querySelectorAll("input, textarea").forEach(function (input) {
+      input.addEventListener("input", function () {
+        clearFieldError(input);
+      });
+    });
+  }
+
+  function markFieldError(input) {
+    var field = input.closest(".field");
+    if (field) field.classList.add("field-error");
+  }
+
+  function clearFieldError(input) {
+    var field = input.closest(".field");
+    if (field) field.classList.remove("field-error");
   }
 
   function isValidEmail(value) {
@@ -143,6 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!el) return;
     el.textContent = message;
     el.classList.toggle("success", isSuccess);
+    el.classList.add("is-visible");
   }
 
   /* ---------- Set active nav link based on current page ---------- */
