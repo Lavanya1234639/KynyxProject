@@ -154,19 +154,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-const reveal = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("active");
-        }
-    });
-},{
-    threshold:0.15
-});
-
-reveal.forEach(section=>{
-    section.classList.add("reveal");
-    observer.observe(section);
-});
