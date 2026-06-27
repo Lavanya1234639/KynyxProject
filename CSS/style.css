@@ -1642,3 +1642,38 @@ section {
 .why-band {
   padding-top: 40px;
 }
+.why-band {
+  padding-bottom: 0;
+}
+
+#values {
+  padding-top: 40px;
+}
+#values {
+  padding-bottom: 0;
+}
+
+#journey {
+  padding-top: 40px;
+}
+
+#team {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+#faq {
+  padding-top: 40px;
+}
+
+#journey {
+  padding-bottom: 0;
+}
+
+#faq {
+  padding-bottom: 0;
+}
+
+.cta-band {
+  margin-top: 0;
+}
