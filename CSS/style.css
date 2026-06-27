@@ -1635,3 +1635,10 @@ section {
   font-size: 12px;
   color: var(--signal-dim);
 }
+#story {
+  padding-bottom: 0;
+}
+
+.why-band {
+  padding-top: 40px;
+}
