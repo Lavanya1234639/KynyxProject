@@ -1,108 +1,132 @@
-/* =========================================================
-   Kynyx Solutions — projects.js
-   Standalone script for projects.html
-   Mobile nav, active link highlighting, scroll reveal,
-   header scroll state, project category filtering
-   ========================================================= */
+// =====================
+// PROJECTS.JS — Kynyx Solutions
+// =====================
 
-document.addEventListener("DOMContentLoaded", function () {
-  /* ---------- Mobile nav toggle ---------- */
-  var navToggle = document.querySelector(".nav-toggle");
-  var navLinks = document.querySelector(".nav-links");
+document.addEventListener('DOMContentLoaded', function () {
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", function () {
-      var isOpen = navLinks.classList.toggle("is-open");
-      navToggle.classList.toggle("is-active", isOpen);
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
-
-    /* Close mobile nav when a link is clicked */
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("is-open");
-        navToggle.classList.remove("is-active");
-        document.body.style.overflow = "";
-      });
-    });
-  }
-
-  /* ---------- Header background state on scroll ---------- */
-  var header = document.querySelector(".site-header");
-  if (header) {
-    var handleScroll = function () {
-      if (window.scrollY > 12) {
-        header.classList.add("is-scrolled");
-      } else {
-        header.classList.remove("is-scrolled");
+  // ── SCROLL REVEAL ──
+  const cards = document.querySelectorAll('.project-card');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('reveal-visible');
+        }, i * 100);
+        revealObserver.unobserve(entry.target);
       }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-  }
-
-  /* ---------- Scroll reveal for project cards ---------- */
-  var revealEls = document.querySelectorAll(".project-card");
-
-  if ("IntersectionObserver" in window && revealEls.length) {
-    revealEls.forEach(function (el) {
-      el.classList.add("reveal");
     });
+  }, { threshold: 0.1 });
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
+  cards.forEach(card => revealObserver.observe(card));
 
-    revealEls.forEach(function (el) {
-      observer.observe(el);
+  // ── PROCESS STEPS REVEAL ──
+  const steps = document.querySelectorAll('.process-step');
+  const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, i * 120);
+        stepObserver.unobserve(entry.target);
+      }
     });
-  }
+  }, { threshold: 0.15 });
 
-  /* ---------- Project category filtering ---------- */
-  var filterTabs = document.querySelectorAll(".filter-tab");
-  var projectCards = document.querySelectorAll(".project-card");
-  var noResultsEl = document.querySelector(".no-results");
+  steps.forEach(step => {
+    step.style.opacity = '0';
+    step.style.transform = 'translateY(20px)';
+    step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    stepObserver.observe(step);
+  });
 
-  if (filterTabs.length && projectCards.length) {
-    filterTabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        filterTabs.forEach(function (t) {
-          t.classList.remove("active");
-        });
-        tab.classList.add("active");
+  // ── FILTER TABS ──
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const projectCards = document.querySelectorAll('.project-card');
+  const noResults = document.querySelector('.no-results');
 
-        var filter = tab.getAttribute("data-filter");
-        var visibleCount = 0;
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
 
-        projectCards.forEach(function (card) {
-          var category = card.getAttribute("data-category");
-          var shouldShow = filter === "all" || category === filter;
-          card.classList.toggle("is-hidden", !shouldShow);
-          if (shouldShow) visibleCount++;
-        });
+      // Active tab
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
 
-        if (noResultsEl) {
-          noResultsEl.hidden = visibleCount > 0;
+      const filter = tab.getAttribute('data-filter');
+      let visibleCount = 0;
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const matches = filter === 'all' || category === filter;
+
+        if (matches) {
+          card.classList.remove('is-hidden');
+          visibleCount++;
+          // Re-animate on filter
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          }, 50);
+        } else {
+          card.classList.add('is-hidden');
         }
       });
+
+      // No results message
+      if (noResults) {
+        noResults.hidden = visibleCount > 0;
+      }
     });
+  });
+
+  // ── STATS COUNTER ──
+  function animateCounter(el) {
+    const raw = el.textContent.trim();
+    const hasPlus = raw.includes('+');
+    const hasPct = raw.includes('%');
+    const target = parseInt(raw);
+    if (isNaN(target)) return;
+
+    let count = 0;
+    const step = Math.ceil(target / 40);
+    const suffix = hasPlus ? '+' : hasPct ? '%' : '';
+
+    const timer = setInterval(() => {
+      count += step;
+      if (count >= target) {
+        el.textContent = target + suffix;
+        clearInterval(timer);
+      } else {
+        el.textContent = count + suffix;
+      }
+    }, 30);
   }
 
-  /* ---------- Set active nav link based on current page ---------- */
-  var currentPage = window.location.pathname.split("/").pop() || "projects.html";
-  document.querySelectorAll(".nav-links a").forEach(function (link) {
-    var href = link.getAttribute("href");
-    if (href === currentPage) {
-      link.classList.add("active");
-    }
+  const statsStrip = document.querySelector('.stats-strip');
+  if (statsStrip) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.num').forEach(animateCounter);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    statsObserver.observe(statsStrip);
+  }
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
+
 });
