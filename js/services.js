@@ -1,78 +1,90 @@
-/* =========================================================
-   Kynyx Solutions — services.js
-   Standalone script for services.html
-   Mobile nav, active link highlighting, scroll reveal,
-   header scroll state
-   ========================================================= */
+// =====================
+// SERVICES.JS — Kynyx Solutions
+// =====================
 
-document.addEventListener("DOMContentLoaded", function () {
-  /* ---------- Mobile nav toggle ---------- */
-  var navToggle = document.querySelector(".nav-toggle");
-  var navLinks = document.querySelector(".nav-links");
+document.addEventListener('DOMContentLoaded', function () {
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", function () {
-      var isOpen = navLinks.classList.toggle("is-open");
-      navToggle.classList.toggle("is-active", isOpen);
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
-
-    /* Close mobile nav when a link is clicked */
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("is-open");
-        navToggle.classList.remove("is-active");
-        document.body.style.overflow = "";
-      });
-    });
-  }
-
-  /* ---------- Header background state on scroll ---------- */
-  var header = document.querySelector(".site-header");
-  if (header) {
-    var handleScroll = function () {
-      if (window.scrollY > 12) {
-        header.classList.add("is-scrolled");
-      } else {
-        header.classList.remove("is-scrolled");
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        revealObserver.unobserve(entry.target);
       }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-  }
-
-  /* ---------- Scroll reveal for service detail sections ---------- */
-  var revealEls = document.querySelectorAll(".feature-item, .process-step");
-
-  if ("IntersectionObserver" in window && revealEls.length) {
-    revealEls.forEach(function (el) {
-      el.classList.add("reveal");
     });
+  }, { threshold: 0.12 });
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    revealEls.forEach(function (el) {
-      observer.observe(el);
-    });
-  }
-
-  /* ---------- Set active nav link based on current page ---------- */
-  var currentPage = window.location.pathname.split("/").pop() || "services.html";
-  document.querySelectorAll(".nav-links a").forEach(function (link) {
-    var href = link.getAttribute("href");
-    if (href === currentPage) {
-      link.classList.add("active");
-    }
+  revealEls.forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
   });
+
+  // ── STICKY SERVICE NAV ──
+  const heroSection = document.querySelector('.page-hero');
+  const stickyNav = document.createElement('nav');
+  stickyNav.className = 'svc-sticky-nav';
+  stickyNav.innerHTML = `
+    <a href="#web-development">Web Dev</a>
+    <a href="#mobile-apps">Mobile</a>
+    <a href="#ai-solutions">AI</a>
+    <a href="#cloud-services">Cloud</a>
+    <a href="#business-analytics">Analytics</a>
+    <a href="#ui-ux-design">UI/UX</a>
+  `;
+  document.body.appendChild(stickyNav);
+
+  // Show sticky nav after hero
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        stickyNav.classList.add('is-visible');
+      } else {
+        stickyNav.classList.remove('is-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (heroSection) heroObserver.observe(heroSection);
+
+  // ── ACTIVE NAV LINK ON SCROLL ──
+  const serviceSections = document.querySelectorAll('.service-section');
+  const stickyLinks = stickyNav.querySelectorAll('a');
+  const heroNavLinks = document.querySelectorAll('.services-nav a');
+
+  const activeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        stickyLinks.forEach(a => {
+          a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`);
+        });
+        heroNavLinks.forEach(a => {
+          a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  serviceSections.forEach(s => activeObserver.observe(s));
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── FEATURE ITEMS STAGGER ──
+  document.querySelectorAll('.service-section').forEach(section => {
+    const items = section.querySelectorAll('.feature-item');
+    items.forEach((item, i) => {
+      item.style.transitionDelay = `${i * 80}ms`;
+    });
+  });
+
 });

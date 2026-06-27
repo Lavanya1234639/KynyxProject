@@ -10,16 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="stylesheet" href="CSS/responsive.css" />
   <link rel="stylesheet" href="CSS/services.css" />
-  <link rel="stylesheet" href="CSS/services-responsive.css" />
 </head>
 <body>
 
-  <!-- ===================== HEADER ===================== -->
+  <!-- HEADER -->
   <header class="site-header">
     <nav class="nav">
       <a href="index.html" class="logo">Kynyx<span>Solutions</span></a>
-
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -27,9 +27,7 @@
         <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
       <a href="contact.html" class="nav-cta">Get Started</a>
-
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -38,302 +36,258 @@
 
   <main>
 
-    <!-- ===================== PAGE HERO ===================== -->
+    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">What We Do</p>
-        <h1>Practical Technology Services Built Around Your Goals</h1>
-        <p>
-          From the first line of code to long-term support, we build digital products
-          that are reliable, scalable, and easy to maintain.
-        </p>
+        <h1>Practical Technology Services<br>Built Around Your Goals</h1>
+        <p>From the first line of code to long-term support, we build digital products that are reliable, scalable, and easy to maintain.</p>
+        <div class="services-nav">
+          <a href="#web-development">Web Dev</a>
+          <a href="#mobile-apps">Mobile</a>
+          <a href="#ai-solutions">AI</a>
+          <a href="#cloud-services">Cloud</a>
+          <a href="#business-analytics">Analytics</a>
+          <a href="#ui-ux-design">UI/UX</a>
+        </div>
       </div>
     </section>
 
-    <!-- ===================== SERVICES DETAIL ===================== -->
-    <section id="web-development">
+    <!-- 01 WEB DEVELOPMENT -->
+    <section id="web-development" class="service-section" data-reveal="up">
       <div class="container split">
         <div class="about-copy">
           <p class="eyebrow">01 / Web Development</p>
-          <h2 style="font-family:var(--font-display); font-size:clamp(28px,4vw,38px); font-weight:600; margin-bottom:18px; line-height:1.2;">
-            Modern Websites &amp; Web Applications
-          </h2>
-          <p>
-            We design and build responsive, fast-loading websites and web applications
-            using modern frameworks. Whether it's a marketing site, a customer portal,
-            or a custom internal tool, we focus on clean code and long-term maintainability.
-          </p>
-
+          <h2>Modern Websites &amp; Web Applications</h2>
+          <p>We design and build responsive, fast-loading websites and web applications using modern frameworks. Whether it's a marketing site, a customer portal, or a custom internal tool, we focus on clean code and long-term maintainability.</p>
           <div class="feature-grid">
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Responsive Design</h4>
               <p>Works smoothly across desktop, tablet, and mobile</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>SEO Friendly</h4>
               <p>Built with search visibility in mind from day one</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Performance Focused</h4>
               <p>Optimized loading speed and clean codebase</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Easy To Maintain</h4>
               <p>Well-documented code your team can build on</p>
             </div>
           </div>
+          <a href="contact.html" class="btn btn-primary svc-cta">Start a Web Project →</a>
         </div>
-
-        <div class="split-visual viz-panel light">
+        <div class="split-visual viz-panel light" data-reveal="right">
           <span class="viz-corner tl"></span>
           <span class="viz-corner br"></span>
-          <p class="viz-label">Web Development
-            <strong>Sites &amp; Web Apps</strong>
-          </p>
+          <p class="viz-label">Web Development<strong>Sites &amp; Web Apps</strong></p>
         </div>
       </div>
     </section>
 
-    <section id="mobile-apps" style="background:var(--paper-dim);">
+    <!-- 02 MOBILE APPS -->
+    <section id="mobile-apps" class="service-section svc-alt" data-reveal="up">
       <div class="container split">
-        <div class="split-visual viz-panel">
+        <div class="split-visual viz-panel" data-reveal="left">
           <span class="viz-corner tl"></span>
           <span class="viz-corner br"></span>
-          <p class="viz-label">Mobile Applications
-            <strong>iOS &amp; Android</strong>
-          </p>
+          <p class="viz-label">Mobile Apps<strong>iOS &amp; Android</strong></p>
         </div>
-
         <div class="about-copy">
           <p class="eyebrow">02 / Mobile Applications</p>
-          <h2 style="font-family:var(--font-display); font-size:clamp(28px,4vw,38px); font-weight:600; margin-bottom:18px; line-height:1.2;">
-            Cross-Platform Mobile Apps
-          </h2>
-          <p>
-            We build mobile applications that work across iOS and Android from a
-            shared codebase, helping you reach more users without duplicating
-            development effort.
-          </p>
-
+          <h2>Cross-Platform Mobile Apps</h2>
+          <p>We build mobile applications that work across iOS and Android from a shared codebase, helping you reach more users without duplicating development effort.</p>
           <div class="feature-grid">
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Cross-Platform</h4>
               <p>One codebase for iOS and Android</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Smooth UX</h4>
               <p>Native-feeling navigation and interactions</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>API Integration</h4>
               <p>Connects cleanly with your existing backend</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>App Store Ready</h4>
               <p>Guidance through submission and review</p>
             </div>
           </div>
+          <a href="contact.html" class="btn btn-primary svc-cta">Start a Mobile Project →</a>
         </div>
       </div>
     </section>
 
-    <section id="ai-solutions">
+    <!-- 03 AI SOLUTIONS -->
+    <section id="ai-solutions" class="service-section" data-reveal="up">
       <div class="container split">
         <div class="about-copy">
           <p class="eyebrow">03 / AI Solutions</p>
-          <h2 style="font-family:var(--font-display); font-size:clamp(28px,4vw,38px); font-weight:600; margin-bottom:18px; line-height:1.2;">
-            Practical AI &amp; Automation
-          </h2>
-          <p>
-            We help businesses identify where AI can genuinely save time — automating
-            repetitive tasks, summarizing data, or powering simple chat-based tools —
-            without overcomplicating your existing workflow.
-          </p>
-
+          <h2>Practical AI &amp; Automation</h2>
+          <p>We help businesses identify where AI can genuinely save time — automating repetitive tasks, summarizing data, or powering simple chat-based tools — without overcomplicating your existing workflow.</p>
           <div class="feature-grid">
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Workflow Automation</h4>
               <p>Removing repetitive manual steps</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Data Summarization</h4>
               <p>Turning raw data into readable insights</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Chat &amp; Support Tools</h4>
               <p>Simple AI-assisted customer interactions</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Honest Scoping</h4>
               <p>We tell you when AI isn't the right fit too</p>
             </div>
           </div>
+          <a href="contact.html" class="btn btn-primary svc-cta">Explore AI Solutions →</a>
         </div>
-
-        <div class="split-visual viz-panel light">
+        <div class="split-visual viz-panel light" data-reveal="right">
           <span class="viz-corner tl"></span>
           <span class="viz-corner br"></span>
-          <p class="viz-label">AI Solutions
-            <strong>Automation &amp; Insights</strong>
-          </p>
+          <p class="viz-label">AI Solutions<strong>Automation &amp; Insights</strong></p>
         </div>
       </div>
     </section>
 
-    <section id="cloud-services" style="background:var(--paper-dim);">
+    <!-- 04 CLOUD SERVICES -->
+    <section id="cloud-services" class="service-section svc-alt" data-reveal="up">
       <div class="container split">
-        <div class="split-visual viz-panel">
+        <div class="split-visual viz-panel" data-reveal="left">
           <span class="viz-corner tl"></span>
           <span class="viz-corner br"></span>
-          <p class="viz-label">Cloud Services
-            <strong>Infrastructure &amp; Deployment</strong>
-          </p>
+          <p class="viz-label">Cloud Services<strong>Infrastructure &amp; Deployment</strong></p>
         </div>
-
         <div class="about-copy">
           <p class="eyebrow">04 / Cloud Services</p>
-          <h2 style="font-family:var(--font-display); font-size:clamp(28px,4vw,38px); font-weight:600; margin-bottom:18px; line-height:1.2;">
-            Cloud Infrastructure &amp; Deployment
-          </h2>
-          <p>
-            We set up and manage cloud infrastructure that scales with your traffic
-            and stays cost-efficient — covering deployment pipelines, hosting, and
-            basic monitoring so your product stays online.
-          </p>
-
+          <h2>Cloud Infrastructure &amp; Deployment</h2>
+          <p>We set up and manage cloud infrastructure that scales with your traffic and stays cost-efficient — covering deployment pipelines, hosting, and basic monitoring so your product stays online.</p>
           <div class="feature-grid">
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Scalable Hosting</h4>
               <p>Infrastructure that grows with your traffic</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>CI/CD Pipelines</h4>
               <p>Automated, repeatable deployments</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Monitoring &amp; Alerts</h4>
               <p>Know about issues before your users do</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Cost Optimization</h4>
               <p>Right-sized infrastructure, not over-provisioned</p>
             </div>
           </div>
+          <a href="contact.html" class="btn btn-primary svc-cta">Discuss Cloud Setup →</a>
         </div>
       </div>
     </section>
 
-    <section id="business-analytics">
+    <!-- 05 BUSINESS ANALYTICS -->
+    <section id="business-analytics" class="service-section" data-reveal="up">
       <div class="container split">
         <div class="about-copy">
           <p class="eyebrow">05 / Business Analytics</p>
-          <h2 style="font-family:var(--font-display); font-size:clamp(28px,4vw,38px); font-weight:600; margin-bottom:18px; line-height:1.2;">
-            Dashboards &amp; Data Insights
-          </h2>
-          <p>
-            We turn scattered business data into clear, interactive dashboards —
-            helping you track what matters and make decisions backed by numbers
-            instead of guesswork.
-          </p>
-
+          <h2>Dashboards &amp; Data Insights</h2>
+          <p>We turn scattered business data into clear, interactive dashboards — helping you track what matters and make decisions backed by numbers instead of guesswork.</p>
           <div class="feature-grid">
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Custom Dashboards</h4>
               <p>Built around your specific metrics</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Data Pipeline Setup</h4>
               <p>Connecting and cleaning your data sources</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Reporting Automation</h4>
               <p>Scheduled reports instead of manual exports</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Clear Visualizations</h4>
               <p>Charts that are easy to read at a glance</p>
             </div>
           </div>
+          <a href="contact.html" class="btn btn-primary svc-cta">Get a Data Dashboard →</a>
         </div>
-
-        <div class="split-visual viz-panel light">
+        <div class="split-visual viz-panel light" data-reveal="right">
           <span class="viz-corner tl"></span>
           <span class="viz-corner br"></span>
-          <p class="viz-label">Business Analytics
-            <strong>Dashboards &amp; Reports</strong>
-          </p>
+          <p class="viz-label">Business Analytics<strong>Dashboards &amp; Reports</strong></p>
         </div>
       </div>
     </section>
 
-    <section id="ui-ux-design" style="background:var(--paper-dim);">
+    <!-- 06 UI/UX DESIGN -->
+    <section id="ui-ux-design" class="service-section svc-alt" data-reveal="up">
       <div class="container split">
-        <div class="split-visual viz-panel">
+        <div class="split-visual viz-panel" data-reveal="left">
           <span class="viz-corner tl"></span>
           <span class="viz-corner br"></span>
-          <p class="viz-label">UI/UX Design
-            <strong>Interfaces &amp; Prototypes</strong>
-          </p>
+          <p class="viz-label">UI/UX Design<strong>Interfaces &amp; Prototypes</strong></p>
         </div>
-
         <div class="about-copy">
           <p class="eyebrow">06 / UI/UX Design</p>
-          <h2 style="font-family:var(--font-display); font-size:clamp(28px,4vw,38px); font-weight:600; margin-bottom:18px; line-height:1.2;">
-            Interfaces People Enjoy Using
-          </h2>
-          <p>
-            We design interfaces that are intuitive first and polished second —
-            wireframing, prototyping, and refining the user experience before a
-            single line of production code is written.
-          </p>
-
+          <h2>Interfaces People Enjoy Using</h2>
+          <p>We design interfaces that are intuitive first and polished second — wireframing, prototyping, and refining the user experience before a single line of production code is written.</p>
           <div class="feature-grid">
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Wireframing</h4>
               <p>Mapping out structure before visual design</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Interactive Prototypes</h4>
               <p>Click-through demos before development starts</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Design Systems</h4>
               <p>Consistent components across your product</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal="up">
               <span class="feature-mark">✔</span>
               <h4>Accessibility Minded</h4>
               <p>Designed to work for as many users as possible</p>
             </div>
           </div>
+          <a href="contact.html" class="btn btn-primary svc-cta">Start with Design →</a>
         </div>
       </div>
     </section>
 
-    <!-- ===================== PROCESS RECAP ===================== -->
+    <!-- PROCESS -->
     <section id="how-we-work">
       <div class="container">
         <div class="section-head center">
@@ -341,52 +295,50 @@
           <h2>A Simple, Transparent Process</h2>
           <p>No matter which service you need, every engagement follows the same clear structure.</p>
         </div>
-
         <div class="process-list">
-          <div class="process-step">
+          <div class="process-step" data-reveal="up">
             <p class="step-num"><strong>01</strong> / 04</p>
             <h3>Discovery</h3>
-            <p>Understanding your goals and project requirements.</p>
+            <p>We learn your business, goals, and constraints before writing a single line of code.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal="up">
             <p class="step-num"><strong>02</strong> / 04</p>
-            <h3>Planning</h3>
-            <p>Creating strategies, wireframes, and technical roadmaps.</p>
+            <h3>Scope & Design</h3>
+            <p>Wireframes, user flows, and a clear project plan with agreed milestones.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal="up">
             <p class="step-num"><strong>03</strong> / 04</p>
-            <h3>Development</h3>
-            <p>Building scalable and high-performance solutions.</p>
+            <h3>Build & Test</h3>
+            <p>Iterative development with regular demos. You see progress every week.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal="up">
             <p class="step-num"><strong>04</strong> / 04</p>
-            <h3>Launch</h3>
-            <p>Deployment, testing, and continuous support.</p>
+            <h3>Launch & Support</h3>
+            <p>Smooth deployment, training, and 30-day post-launch support included.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== CTA BAND ===================== -->
+    <!-- CTA -->
     <section class="cta-band">
       <div class="container">
         <h2>Not Sure Which Service You Need?</h2>
         <p>Tell us about your project and we'll help you figure out the right starting point.</p>
-        <a href="contact.html" class="btn btn-primary">Talk To Us</a>
+        <a href="contact.html" class="btn btn-primary">Talk To Us →</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">Kynyx<span>Solutions</span></a>
-          <p>Transforming businesses through innovative digital solutions and modern technology.</p>
+          <p>Building practical digital products for businesses that want to grow. Based in Patna, working across India.</p>
         </div>
-
         <div class="footer-col">
           <h5>Quick Links</h5>
           <ul>
@@ -397,26 +349,25 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h5>Services</h5>
           <ul>
-            <li><a href="services.html#web-development">Web Development</a></li>
-            <li><a href="services.html#mobile-apps">Mobile Apps</a></li>
-            <li><a href="services.html#cloud-services">Cloud Solutions</a></li>
-            <li><a href="services.html#ai-solutions">AI Solutions</a></li>
+            <li><a href="#web-development">Web Development</a></li>
+            <li><a href="#mobile-apps">Mobile Apps</a></li>
+            <li><a href="#ai-solutions">AI Solutions</a></li>
+            <li><a href="#cloud-services">Cloud Services</a></li>
+            <li><a href="#ui-ux-design">UI/UX Design</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h5>Contact</h5>
           <ul>
             <li><p>Patna, Bihar, India</p></li>
             <li><p>contact@kynyxsolutions.com</p></li>
+            <li><p>+91 XXXXX XXXXX</p></li>
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p>© 2026 Kynyx Solutions. All Rights Reserved.</p>
         <div class="footer-socials">
@@ -428,6 +379,7 @@
     </div>
   </footer>
 
-  <script src="JS/services.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/services.js"></script>
 </body>
 </html>
